@@ -5,7 +5,7 @@ This document should provide a brief outline and direction for your game to get 
 For each of these provide at least a short paragraph describing each, unless otherwise noted:
 
 ## Vision Statement
-The main goal of this game is to create a fast-paced platformer that is set within the theme of someone's mind. The player will go through many different levels, thus going through many different settings of the mind. 
+The main goal of this game is to create a fast-paced platformer that is set within the theme of someone's mind. The player will go through many different levels, thus going through many different phases of the mind. 
 
 ## Gameplay 
 The game consists of the player running through obstacles in order to escape the ever encroaching void. The gameplay will be fast paced with the player making split second decisions in order to accomplish the goal. The will be obstacles in which the player will have to quickly plan thier rought in order to achieve the most efficient time.
@@ -23,24 +23,31 @@ Controls will be the simple WSAD/Arrows movement format with the spacebar being 
 The aesthetic will depend on the level being played. Asthetics can range from city, hospital, forrest, and others as the full release of the game is completed. 
 
 ### Desired Player Experience
-What should be the emotional experience of playing this game?
+The player should feel a mix of curiosity and unease. As the game progresses, the player feels what it’s like to lose clarity and search for meaning. The experience should create tension but also a sense of reward when progress is made.
 
 ## Game Characters
-Who are the characters of your game? Include both player characters (PCs) and non-player characters (NPCs).
+Player Character (PC): A protagonist struggling within their own mind.
+Guide/Doctor (NPC): A figure that offers direction and context through dialogue.
+Obstacles: Manifestations of memories, hallucinations, and inner fears.
 
 ## Story
-If your game includes a story, describe it here. Provide a short narrative describing what is happening in your game?
+The story revolves around a character navigating different states of their mind. With the guidance of a doctor, they confront past events and mental struggles across multiple levels. Each phase reveals more about the character’s inner world, leading toward resolution.
 
 ## The Game World
-If your game involves making a world, describe it. Potentially include:
-* Key Locations
-* Maps
-* Scale
-* Weather / Time
-* Society / Culture
+Key Locations:
+  1. A stable, simple room where progression seems clear.
+  2. A battlefield-like space representing past trauma.
+  3. A distorted home space.
+  4. A locked chamber where the player must piece together a code from earlier rooms.
+Maps: Linear progression from one level to the next.
+Scale: Medium-sized rooms, each with a unique theme.
+Weather/Time: Dark, moody environments with dim lighting to reflect inner struggle.
   
 ## Media List
-Provide some direction for the art, what should it look like?
+Character Art: Player sprite, guide/doctor sprite, enemy designs (soldiers, blurred figures, etc.).
+Animations: Walking, jumping, climbing, vaulting, attacking, enemy movement.
+World Art: Rooms with different themes (hospital, battlefield, distorted home).
+Music & Sound Effects: Ambient, tense background music; footsteps; enemy sounds; text cues from the doctor.
 
 Also what will you need:
 * Character Art?
