@@ -1,8 +1,5 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/RUW5rPtF)
 # Mindhunter: Game Design Document
-This document should provide a brief outline and direction for your game to get you thinking about the game that you want to design, how you will make it, and what you need to make?
-
-For each of these provide at least a short paragraph describing each, unless otherwise noted:
 
 ## Vision Statement
 The main goal of this game is to create a fast-paced platformer that is set within the theme of someone's mind. The player will go through many different levels, thus going through many different phases of the mind. 
@@ -26,9 +23,9 @@ The aesthetic will depend on the level being played. Asthetics can range from ci
 The player should feel a mix of curiosity and unease. As the game progresses, the player feels what it’s like to lose clarity and search for meaning. The experience should create tension but also a sense of reward when progress is made.
 
 ## Game Characters
-Player Character (PC): A protagonist struggling within their own mind.
-Guide/Doctor (NPC): A figure that offers direction and context through dialogue.
-Obstacles: Manifestations of memories, hallucinations, and inner fears.
+Player Character (PC): A protagonist struggling within their own mind.<br />
+Guide/Doctor (NPC): A figure that offers direction and context through dialogue.<br />
+Obstacles: Manifestations of memories, hallucinations, and inner fears.<br />
 
 ## Story
 The story revolves around a character navigating different states of their mind. With the guidance of a doctor, they confront past events and mental struggles across multiple levels. Each phase reveals more about the character’s inner world, leading toward resolution.
@@ -38,19 +35,19 @@ Key Locations:
   1. A stable, simple room where progression seems clear.
   2. A battlefield-like space representing past trauma.
   3. A distorted home space.
-  4. A locked chamber where the player must piece together a code from earlier rooms.
-Maps: Linear progression from one level to the next.
-Scale: Medium-sized rooms, each with a unique theme.
-Weather/Time: Dark, moody environments with dim lighting to reflect inner struggle.
+  4. A locked chamber where the player must piece together a code from earlier rooms.<br />
+Maps: Linear progression from one level to the next.<br />
+Scale: Medium-sized rooms, each with a unique theme.<br />
+Weather/Time: Dark, moody environments with dim lighting to reflect inner struggle.<br />
   
 ## Media List
-Character Art: Player sprite, guide/doctor sprite, enemy designs (soldiers, blurred figures, etc.).
-Animations: Walking, jumping, climbing, vaulting, attacking, enemy movement.
-World Art: Rooms with different themes (hospital, battlefield, distorted home).
-Music & Sound Effects: Ambient, tense background music; footsteps; enemy sounds; text cues from the doctor.
+Character Art: Player sprite, guide/doctor sprite, enemy designs (soldiers, blurred figures, etc.).<br />
+Animations: Walking, jumping, climbing, vaulting, attacking, enemy movement.<br />
+World Art: Rooms with different themes (hospital, battlefield, distorted home).<br />
+Music & Sound Effects: Ambient, tense background music; footsteps; enemy sounds; text cues from the doctor.<br />
 
 Also what will you need:
-* Character Art?
-* Animations?
-* World Art?
-* Music and Sound Effects?
+* Character Art - Yes
+* Animations - Yes
+* World Art - Yes
+* Music and Sound Effects - Yes
