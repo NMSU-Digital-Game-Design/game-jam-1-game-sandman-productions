@@ -36,6 +36,7 @@ Key Locations:
   2. A battlefield-like space representing past trauma.
   3. A distorted home space.
   4. A locked chamber where the player must piece together a code from earlier rooms.<br />
+  
 Maps: Linear progression from one level to the next.<br />
 Scale: Medium-sized rooms, each with a unique theme.<br />
 Weather/Time: Dark, moody environments with dim lighting to reflect inner struggle.<br />
