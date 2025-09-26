@@ -5,23 +5,22 @@ This document should provide a brief outline and direction for your game to get 
 For each of these provide at least a short paragraph describing each, unless otherwise noted:
 
 ## Vision Statement
-Provide a brief (1-2 sentence statement) of your vision of the game.
+The main goal of this game is to create a fast-paced platformer that is set within the theme of someone's mind. The player will go through many different levels, thus going through many different settings of the mind. 
 
 ## Gameplay 
-What will game play entail:
+The game consists of the player running through obstacles in order to escape the ever encroaching void. The gameplay will be fast paced with the player making split second decisions in order to accomplish the goal. The will be obstacles in which the player will have to quickly plan thier rought in order to achieve the most efficient time.
 
 ### Mechanics
-What are the choices that players are making in the game? 
-What are the core mechanics, i.e., the ones that are getting performed repeatedly?
+The player will need to mentally create a route and run it. The player can choose whichever route to run at thier own descretion. Timing in the players actions such as jumping, climbing, and vaulting can greatly affect the players time duringh the gameplay. 
 
 ### Scoring and/or Win / Lose Conditions
-How will players win or lose or know how they are performing in the game?
+The player will lose when the void consumes the player before they can reach the end of the level. If the player can reach the end of the level within the alloted time they will win. There will be a timer present in encourage the player to not only beat the level but also try to get the fastest time. 
 
 ### Controls
-How will the player execute mechanics?
+Controls will be the simple WSAD/Arrows movement format with the spacebar being used to control jump.
 
 ### Aesthetic
-How would you describe your vision of the aesthetic of the game?
+The aesthetic will depend on the level being played. Asthetics can range from city, hospital, forrest, and others as the full release of the game is completed. 
 
 ### Desired Player Experience
 What should be the emotional experience of playing this game?
