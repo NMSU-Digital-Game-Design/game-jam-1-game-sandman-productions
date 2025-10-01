@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var gravity = 350
 var walkingVelocity = 220
+var sprintingVelocity = 420
 var jumpVelocity = 220
 
 signal beenHit;
@@ -46,18 +47,33 @@ func _process(delta: float) -> void:
 	else:
 		# Normal movement
 		if Input.is_action_pressed("Right"):
-			velocity.x = walkingVelocity
+			if Input.is_action_pressed("Sprint"):
+				velocity.x = sprintingVelocity
+			else:
+				velocity.x = walkingVelocity
 			facing_right = true
 			if is_on_floor():
-				$AnimatedSprite2D.animation = "walking"
-				$AnimatedSprite2D.play()
+				if Input.is_action_pressed("Sprint"):
+					$AnimatedSprite2D.animation = "sprint"
+					$AnimatedSprite2D.play()
+				else :
+					$AnimatedSprite2D.animation = "walking"
+					$AnimatedSprite2D.play()
 			$AnimatedSprite2D.flip_h = false
 		elif Input.is_action_pressed("Left"):
-			velocity.x = -walkingVelocity
+			if Input.is_action_pressed("Sprint"):
+				$AnimatedSprite2D.animation = "sprint"
+				velocity.x = -sprintingVelocity
+			else:
+				velocity.x = -walkingVelocity
 			facing_right = false
 			if is_on_floor():
-				$AnimatedSprite2D.animation = "walking"
-				$AnimatedSprite2D.play()
+				if Input.is_action_pressed("Sprint"):
+					$AnimatedSprite2D.animation = "sprint"
+					$AnimatedSprite2D.play()
+				else :
+					$AnimatedSprite2D.animation = "walking"
+					$AnimatedSprite2D.play()
 			$AnimatedSprite2D.flip_h = true
 		else:
 			velocity.x = 0
