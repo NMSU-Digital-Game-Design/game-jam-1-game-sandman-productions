@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dv2tq1fyhcwle"]
+[gd_scene load_steps=10 format=3 uid="uid://dv2tq1fyhcwle"]
 
 [ext_resource type="Script" uid="uid://cnoxep8ew7r3r" path="res://main.gd" id="1_r0du0"]
 [ext_resource type="PackedScene" uid="uid://c55ckk0gf4ok0" path="res://Map/map_1.tscn" id="1_uu6xs"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ds360f58ijdx" path="res://door.tscn" id="5_fos0i"]
 [ext_resource type="Script" uid="uid://bay61sfyka5s6" path="res://key.gd" id="6_3dxm6"]
 [ext_resource type="Script" uid="uid://cgkktol00yafw" path="res://key_body.gd" id="7_lgr22"]
+[ext_resource type="PackedScene" uid="uid://ciiqepsuhcuuu" path="res://ghost.tscn" id="8_trn2v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3dxm6"]
 radius = 7.9662
@@ -67,6 +68,7 @@ may enter..
 
 [node name="Door4" parent="." instance=ExtResource("5_fos0i")]
 position = Vector2(2225, 289)
+collision_mask = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Door4"]
 offset_left = 10.0
@@ -95,6 +97,15 @@ script = ExtResource("7_lgr22")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Key/KeyArea"]
 shape = SubResource("CircleShape2D_3dxm6")
+
+[node name="wife" parent="." instance=ExtResource("8_trn2v")]
+position = Vector2(1734, 394)
+
+[node name="child1" parent="." instance=ExtResource("8_trn2v")]
+position = Vector2(1699, 392)
+
+[node name="child2" parent="." instance=ExtResource("8_trn2v")]
+position = Vector2(1767, 394)
 
 [connection signal="key_collected" from="Key/KeySprite" to="Door1" method="_on_key_key_collected"]
 [connection signal="key_collected" from="Key/KeyArea" to="Door1" method="_on_key_area_key_collected"]

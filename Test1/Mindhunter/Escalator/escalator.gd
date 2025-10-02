@@ -2,6 +2,7 @@ extends CharacterBody2D
 
 var gravity = 350
 var walkingVelocity = 220
+var sprintingVelocity = 420
 var jumpVelocity = 220
 
 signal beenHit;
@@ -11,6 +12,7 @@ var jumpCount = 0
 var isRolling = false
 var roll_time = 1.1  # how long a roll lasts (seconds)
 var roll_timer = 0.0
+var facing_right = true  # <- Track which way the player is looking
 
 func _ready() -> void:
 	pass
@@ -31,24 +33,47 @@ func _process(delta: float) -> void:
 	# Handle rolling
 	if isRolling:
 		roll_timer -= delta
-		velocity.x = walkingVelocity * 1.1  # constant forward movement during roll
+		# Roll in direction player is facing
+		if facing_right:
+			velocity.x = walkingVelocity * 1.5
+		else:
+			velocity.x = -walkingVelocity * 1.5
+
 		$AnimatedSprite2D.animation = "roll"
 		$AnimatedSprite2D.play()
+
 		if roll_timer <= 0:
 			isRolling = false  # roll finished
 	else:
 		# Normal movement
 		if Input.is_action_pressed("Right"):
-			velocity.x = walkingVelocity
+			if Input.is_action_pressed("Sprint"):
+				velocity.x = sprintingVelocity
+			else:
+				velocity.x = walkingVelocity
+			facing_right = true
 			if is_on_floor():
-				$AnimatedSprite2D.animation = "walking"
-				$AnimatedSprite2D.play()
+				if Input.is_action_pressed("Sprint"):
+					$AnimatedSprite2D.animation = "sprint"
+					$AnimatedSprite2D.play()
+				else :
+					$AnimatedSprite2D.animation = "walking"
+					$AnimatedSprite2D.play()
 			$AnimatedSprite2D.flip_h = false
 		elif Input.is_action_pressed("Left"):
-			velocity.x = -walkingVelocity
+			if Input.is_action_pressed("Sprint"):
+				$AnimatedSprite2D.animation = "sprint"
+				velocity.x = -sprintingVelocity
+			else:
+				velocity.x = -walkingVelocity
+			facing_right = false
 			if is_on_floor():
-				$AnimatedSprite2D.animation = "walking"
-				$AnimatedSprite2D.play()
+				if Input.is_action_pressed("Sprint"):
+					$AnimatedSprite2D.animation = "sprint"
+					$AnimatedSprite2D.play()
+				else :
+					$AnimatedSprite2D.animation = "walking"
+					$AnimatedSprite2D.play()
 			$AnimatedSprite2D.flip_h = true
 		else:
 			velocity.x = 0
@@ -70,6 +95,7 @@ func _process(delta: float) -> void:
 			roll_timer = roll_time
 			$AnimatedSprite2D.animation = "roll"
 			$AnimatedSprite2D.play()
+
 	move_and_slide()
 
 
