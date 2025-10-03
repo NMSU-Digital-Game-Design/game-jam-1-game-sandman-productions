@@ -1,0 +1,111 @@
+[gd_scene load_steps=10 format=3 uid="uid://dv2tq1fyhcwle"]
+
+[ext_resource type="Script" uid="uid://cb0oepdv6xt2r" path="res://main.gd" id="1_r0du0"]
+[ext_resource type="PackedScene" uid="uid://c55ckk0gf4ok0" path="res://Map/map_1.tscn" id="1_uu6xs"]
+[ext_resource type="PackedScene" uid="uid://dtl0qla7fbpq2" path="res://Escalator/Escalator.tscn" id="2_r0du0"]
+[ext_resource type="Texture2D" uid="uid://t8561rd3s6is" path="res://Map/Assets/Key.png" id="5_3dxm6"]
+[ext_resource type="PackedScene" uid="uid://ds360f58ijdx" path="res://door.tscn" id="5_fos0i"]
+[ext_resource type="Script" uid="uid://b2462w2yexo7q" path="res://key.gd" id="6_3dxm6"]
+[ext_resource type="Script" uid="uid://b36qef7rl7aj4" path="res://key_body.gd" id="7_lgr22"]
+[ext_resource type="PackedScene" uid="uid://ciiqepsuhcuuu" path="res://ghost.tscn" id="8_trn2v"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3dxm6"]
+radius = 7.9662
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_r0du0")
+escalatorScene = ExtResource("2_r0du0")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Hit Count: 0"
+
+[node name="Map1" parent="." instance=ExtResource("1_uu6xs")]
+
+[node name="Door1" parent="." instance=ExtResource("5_fos0i")]
+position = Vector2(769, 289)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Door1"]
+offset_left = 4.0
+offset_top = 40.0
+offset_right = 83.0
+offset_bottom = 68.0
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "You [color=red]U[/color]nderestimate 
+this door..
+"
+
+[node name="Door2" parent="." instance=ExtResource("5_fos0i")]
+position = Vector2(1265, 288)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Door2"]
+offset_left = 8.0
+offset_top = 40.0
+offset_right = 87.0
+offset_bottom = 68.0
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "The shadows are  [color=red]W[/color]atching..
+"
+
+[node name="Door3" parent="." instance=ExtResource("5_fos0i")]
+position = Vector2(1794, 288)
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Door3"]
+offset_left = 8.0
+offset_top = 40.0
+offset_right = 87.0
+offset_bottom = 68.0
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "[color=red]O[/color]nly the brave 
+may enter..
+"
+
+[node name="Door4" parent="." instance=ExtResource("5_fos0i")]
+position = Vector2(2225, 289)
+collision_mask = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Door4"]
+offset_left = 10.0
+offset_top = 40.0
+offset_right = 89.0
+offset_bottom = 68.0
+theme_override_font_sizes/normal_font_size = 8
+bbcode_enabled = true
+text = "The truth is 
+k[color=red]N[/color]ocking..
+"
+
+[node name="Key" type="Node2D" parent="."]
+
+[node name="KeySprite" type="Sprite2D" parent="Key"]
+position = Vector2(273.25, 255.875)
+scale = Vector2(2.39286, 1.55769)
+texture = ExtResource("5_3dxm6")
+script = ExtResource("6_3dxm6")
+
+[node name="KeyArea" type="Area2D" parent="Key"]
+position = Vector2(271, 258)
+scale = Vector2(2.39286, 1.55769)
+collision_mask = 2
+script = ExtResource("7_lgr22")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Key/KeyArea"]
+shape = SubResource("CircleShape2D_3dxm6")
+
+[node name="wife" parent="." instance=ExtResource("8_trn2v")]
+position = Vector2(1734, 394)
+
+[node name="child1" parent="." instance=ExtResource("8_trn2v")]
+position = Vector2(1699, 392)
+
+[node name="child2" parent="." instance=ExtResource("8_trn2v")]
+position = Vector2(1767, 394)
+
+[connection signal="key_collected" from="Key/KeySprite" to="Door1" method="_on_key_key_collected"]
+[connection signal="key_collected" from="Key/KeyArea" to="Door1" method="_on_key_area_key_collected"]
