@@ -1,13 +1,13 @@
 [gd_scene load_steps=90 format=3 uid="uid://dtl0qla7fbpq2"]
 
-[ext_resource type="Script" uid="uid://bfn31iyxwdx4w" path="res://Escalator/escalator.gd" id="1_ly4k6"]
-[ext_resource type="Texture2D" uid="uid://c6q5c6fwhw3ea" path="res://Escalator/Assets/SpriteSheet/Idle.png" id="2_ksona"]
-[ext_resource type="Texture2D" uid="uid://ccxm2jleomcug" path="res://Escalator/Assets/SpriteSheet/jumping.png" id="3_q7mh7"]
-[ext_resource type="Texture2D" uid="uid://dfymq2x5yh2tv" path="res://Escalator/Assets/SpriteSheet/landing.png" id="4_66i1h"]
-[ext_resource type="Texture2D" uid="uid://sl8yevj3pk4f" path="res://Escalator/Assets/SpriteSheet/run.png" id="5_665ck"]
-[ext_resource type="AudioStream" uid="uid://b7h7drs2ioamc" path="res://Escalator/Assets/mixkit-impact-of-a-blow-2150.wav" id="5_j50fp"]
-[ext_resource type="Texture2D" uid="uid://dprukl7h7eql4" path="res://Escalator/Assets/SpriteSheet/Roll.png" id="5_q7mh7"]
-[ext_resource type="Texture2D" uid="uid://d10vso7gbsvmc" path="res://Escalator/Assets/SpriteSheet/sprint.png" id="6_66i1h"]
+[ext_resource type="Script" uid="uid://dv85qb7c74drf" path="res://Escalator/escalator.gd" id="1_ly4k6"]
+[ext_resource type="Texture2D" uid="uid://b3avrywp26x0r" path="res://Escalator/Assets/SpriteSheet/Idle.png" id="2_ksona"]
+[ext_resource type="Texture2D" uid="uid://bsgtmmd6gnp2d" path="res://Escalator/Assets/SpriteSheet/jumping.png" id="3_q7mh7"]
+[ext_resource type="Texture2D" uid="uid://uhn2o663hho8" path="res://Escalator/Assets/SpriteSheet/landing.png" id="4_66i1h"]
+[ext_resource type="Texture2D" uid="uid://bkdtfrhesqxmb" path="res://Escalator/Assets/SpriteSheet/run.png" id="5_665ck"]
+[ext_resource type="AudioStream" uid="uid://mn7pl3kh85vo" path="res://Escalator/Assets/mixkit-impact-of-a-blow-2150.wav" id="5_j50fp"]
+[ext_resource type="Texture2D" uid="uid://cxop4e13rl6bb" path="res://Escalator/Assets/SpriteSheet/Roll.png" id="5_q7mh7"]
+[ext_resource type="Texture2D" uid="uid://c2syio38oke2o" path="res://Escalator/Assets/SpriteSheet/sprint.png" id="6_66i1h"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jcf7k"]
 atlas = ExtResource("2_ksona")

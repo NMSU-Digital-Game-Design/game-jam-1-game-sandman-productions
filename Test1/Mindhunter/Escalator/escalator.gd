@@ -10,6 +10,7 @@ signal beenHit;
 var startedDown = false
 var jumpCount = 0
 var isRolling = false
+var isjumping = false
 var roll_time = 1.1  # how long a roll lasts (seconds)
 var roll_timer = 0.0
 var facing_right = true  # <- Track which way the player is looking
@@ -20,6 +21,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	# Apply gravity
 	if !is_on_floor():
+		isjumping = true
 		velocity.y += gravity * delta
 		if (velocity.y > 0 and !startedDown and !isRolling):
 			$AnimatedSprite2D.animation = "jump_down"
@@ -28,6 +30,7 @@ func _process(delta: float) -> void:
 	else:
 		velocity.y = 0
 		startedDown = false
+		isjumping = false
 		jumpCount = 0
 
 	# Handle rolling
@@ -47,7 +50,7 @@ func _process(delta: float) -> void:
 	else:
 		# Normal movement
 		if Input.is_action_pressed("Right"):
-			if Input.is_action_pressed("Sprint"):
+			if Input.is_action_pressed("Sprint") and (is_on_floor() or isjumping):
 				velocity.x = sprintingVelocity
 			else:
 				velocity.x = walkingVelocity
@@ -61,7 +64,7 @@ func _process(delta: float) -> void:
 					$AnimatedSprite2D.play()
 			$AnimatedSprite2D.flip_h = false
 		elif Input.is_action_pressed("Left"):
-			if Input.is_action_pressed("Sprint"):
+			if Input.is_action_pressed("Sprint") and (is_on_floor() or isjumping):
 				$AnimatedSprite2D.animation = "sprint"
 				velocity.x = -sprintingVelocity
 			else:
@@ -78,6 +81,7 @@ func _process(delta: float) -> void:
 		else:
 			velocity.x = 0
 			if is_on_floor():
+				isjumping = false
 				$AnimatedSprite2D.animation = "default"
 				$AnimatedSprite2D.play()
 
@@ -88,6 +92,7 @@ func _process(delta: float) -> void:
 			$AnimatedSprite2D.play()
 			jumpCount += 1
 			startedDown = false
+			isjumping = true
 
 		# Start roll
 		if Input.is_action_just_pressed("Roll") and is_on_floor():
