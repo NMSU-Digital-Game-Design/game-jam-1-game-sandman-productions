@@ -1,27 +1,22 @@
 [gd_scene load_steps=10 format=3 uid="uid://dv2tq1fyhcwle"]
 
-[ext_resource type="Script" uid="uid://dq10jgnw5c1ia" path="res://main.gd" id="1_r0du0"]
+[ext_resource type="Script" uid="uid://cwfot7mrhyege" path="res://main.gd" id="1_r0du0"]
 [ext_resource type="PackedScene" uid="uid://c55ckk0gf4ok0" path="res://Map/map_1.tscn" id="1_uu6xs"]
 [ext_resource type="PackedScene" uid="uid://dtl0qla7fbpq2" path="res://Escalator/Escalator.tscn" id="2_r0du0"]
-[ext_resource type="Texture2D" uid="uid://csj1s8x6pvm68" path="res://Map/Assets/Key.png" id="5_3dxm6"]
+[ext_resource type="Texture2D" uid="uid://dule1ttipaykj" path="res://Map/Assets/Key.png" id="5_3dxm6"]
 [ext_resource type="PackedScene" uid="uid://ds360f58ijdx" path="res://door.tscn" id="5_fos0i"]
-[ext_resource type="Script" uid="uid://dbtaf6knm6wj6" path="res://key.gd" id="6_3dxm6"]
-[ext_resource type="Script" uid="uid://c6qlf4vh7jnop" path="res://key_body.gd" id="7_lgr22"]
+[ext_resource type="Script" uid="uid://c8yoatasmht63" path="res://key.gd" id="6_3dxm6"]
+[ext_resource type="Script" uid="uid://cmt67x0ills8j" path="res://key_body.gd" id="7_lgr22"]
 [ext_resource type="PackedScene" uid="uid://ciiqepsuhcuuu" path="res://ghost.tscn" id="8_trn2v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3dxm6"]
-radius = 7.9662
+radius = 10.0298
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_r0du0")
 escalatorScene = ExtResource("2_r0du0")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Label" type="Label" parent="CanvasLayer"]
-offset_right = 40.0
-offset_bottom = 23.0
-text = "Hit Count: 0"
 
 [node name="Map1" parent="." instance=ExtResource("1_uu6xs")]
 
@@ -96,6 +91,47 @@ collision_mask = 2
 script = ExtResource("7_lgr22")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Key/KeyArea"]
+position = Vector2(-0.41791, 0.641976)
+shape = SubResource("CircleShape2D_3dxm6")
+
+[node name="Key2" type="Node2D" parent="."]
+position = Vector2(1220, -128)
+
+[node name="KeySprite2" type="Sprite2D" parent="Key2"]
+position = Vector2(4, -4.57764e-05)
+scale = Vector2(2.39286, 1.55769)
+texture = ExtResource("5_3dxm6")
+script = ExtResource("6_3dxm6")
+door_id = 2
+
+[node name="KeyArea2" type="Area2D" parent="Key2"]
+position = Vector2(4, -4.57764e-05)
+scale = Vector2(2.39286, 1.55769)
+collision_mask = 2
+script = ExtResource("7_lgr22")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Key2/KeyArea2"]
+position = Vector2(1.04904e-05, 4.57764e-05)
+shape = SubResource("CircleShape2D_3dxm6")
+
+[node name="Key3" type="Node2D" parent="."]
+position = Vector2(1456, 120)
+
+[node name="KeySprite3" type="Sprite2D" parent="Key3"]
+position = Vector2(8, -6.10352e-05)
+scale = Vector2(2.39286, 1.55769)
+texture = ExtResource("5_3dxm6")
+script = ExtResource("6_3dxm6")
+door_id = 3
+
+[node name="KeyArea3" type="Area2D" parent="Key3"]
+position = Vector2(236, 256)
+scale = Vector2(2.39286, 1.55769)
+collision_mask = 2
+script = ExtResource("7_lgr22")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Key3/KeyArea3"]
+position = Vector2(-98.6268, -164.346)
 shape = SubResource("CircleShape2D_3dxm6")
 
 [node name="wife" parent="." instance=ExtResource("8_trn2v")]
@@ -109,3 +145,7 @@ position = Vector2(1767, 394)
 
 [connection signal="key_collected" from="Key/KeySprite" to="Door1" method="_on_key_key_collected"]
 [connection signal="key_collected" from="Key/KeyArea" to="Door1" method="_on_key_area_key_collected"]
+[connection signal="key_collected" from="Key2/KeySprite2" to="Door2" method="_on_key_key_collected"]
+[connection signal="key_collected" from="Key2/KeyArea2" to="Door2" method="_on_key_area_key_collected"]
+[connection signal="key_collected" from="Key3/KeySprite3" to="Door3" method="_on_key_key_collected"]
+[connection signal="key_collected" from="Key3/KeyArea3" to="Door3" method="_on_key_area_key_collected"]
