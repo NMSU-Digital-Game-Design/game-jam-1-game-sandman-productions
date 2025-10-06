@@ -1,6 +1,8 @@
 [![Review Assignment Due Date](https://classroom.github.com/assets/deadline-readme-button-22041afd0340ce965d47ae6ef1cefeee28c7c493a6346c4f15d667ab976d596c.svg)](https://classroom.github.com/a/RUW5rPtF)
 # Mindhunter: Game Design Document
 
+<img src="Video Assets/Game Jam Mindhunter.mp4"/>
+
 ## Vision Statement
 The main goal of this game is to create a fast-paced platformer that is set within the theme of someone's mind. The player will go through many different levels, thus going through many different phases of the mind. 
 
