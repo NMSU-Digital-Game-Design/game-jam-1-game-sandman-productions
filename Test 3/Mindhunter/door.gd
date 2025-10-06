@@ -42,3 +42,7 @@ func _process(delta):
 
 func _on_key_area_key_collected() -> void:
 	can_open_door_one = true
+
+
+func _on_key_key_collected() -> void:
+	pass # Replace with function body.

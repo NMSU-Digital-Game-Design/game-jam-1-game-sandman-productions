@@ -1,13 +1,14 @@
-[gd_scene load_steps=90 format=3 uid="uid://dtl0qla7fbpq2"]
+[gd_scene load_steps=92 format=3 uid="uid://dtl0qla7fbpq2"]
 
-[ext_resource type="Script" uid="uid://bfn31iyxwdx4w" path="res://Escalator/escalator.gd" id="1_ly4k6"]
-[ext_resource type="Texture2D" uid="uid://c6q5c6fwhw3ea" path="res://Escalator/Assets/SpriteSheet/Idle.png" id="2_ksona"]
-[ext_resource type="Texture2D" uid="uid://ccxm2jleomcug" path="res://Escalator/Assets/SpriteSheet/jumping.png" id="3_q7mh7"]
-[ext_resource type="Texture2D" uid="uid://dfymq2x5yh2tv" path="res://Escalator/Assets/SpriteSheet/landing.png" id="4_66i1h"]
-[ext_resource type="Texture2D" uid="uid://sl8yevj3pk4f" path="res://Escalator/Assets/SpriteSheet/run.png" id="5_665ck"]
-[ext_resource type="AudioStream" uid="uid://b7h7drs2ioamc" path="res://Escalator/Assets/mixkit-impact-of-a-blow-2150.wav" id="5_j50fp"]
-[ext_resource type="Texture2D" uid="uid://dprukl7h7eql4" path="res://Escalator/Assets/SpriteSheet/Roll.png" id="5_q7mh7"]
-[ext_resource type="Texture2D" uid="uid://d10vso7gbsvmc" path="res://Escalator/Assets/SpriteSheet/sprint.png" id="6_66i1h"]
+[ext_resource type="Script" uid="uid://pqg5pvyh05hh" path="res://Escalator/escalator.gd" id="1_ly4k6"]
+[ext_resource type="Texture2D" uid="uid://bijgd7qngxdlm" path="res://Escalator/Assets/SpriteSheet/Idle.png" id="2_ksona"]
+[ext_resource type="Texture2D" uid="uid://ca6gu82d5hhpd" path="res://Escalator/Assets/SpriteSheet/jumping.png" id="3_q7mh7"]
+[ext_resource type="Texture2D" uid="uid://btsylrj43bvmn" path="res://Escalator/Assets/SpriteSheet/landing.png" id="4_66i1h"]
+[ext_resource type="Texture2D" uid="uid://bv4pbtan6023u" path="res://Escalator/Assets/SpriteSheet/run.png" id="5_665ck"]
+[ext_resource type="AudioStream" uid="uid://d33kuxqcwr143" path="res://Escalator/Assets/mixkit-impact-of-a-blow-2150.wav" id="5_j50fp"]
+[ext_resource type="Texture2D" uid="uid://bfpt24hlqdqys" path="res://Escalator/Assets/SpriteSheet/Roll.png" id="5_q7mh7"]
+[ext_resource type="Texture2D" uid="uid://xh1ffglulakc" path="res://Escalator/Assets/SpriteSheet/sprint.png" id="6_66i1h"]
+[ext_resource type="Texture2D" uid="uid://beherxrko0ax" path="res://Map/Assets/Key.png" id="9_665ck"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_jcf7k"]
 atlas = ExtResource("2_ksona")
@@ -595,10 +596,21 @@ animations = [{
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_nc6s4"]
 radius = 19.0341
-height = 76.0241
+height = 80.0234
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ly4k6"]
 size = Vector2(17, 6.5)
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_66i1h"]
+lifetime_randomness = 0.52
+emission_shape_offset = Vector3(0, 40, 0)
+emission_shape = 1
+emission_sphere_radius = 1.0
+inherit_velocity_ratio = 150.0
+direction = Vector3(-10, 0, 0)
+spread = 180.0
+gravity = Vector3(0, 200, 0)
+color = Color(0.49412245, 0, 0.007242186, 1)
 
 [node name="Escalator" type="CharacterBody2D" groups=["Escalator"]]
 collision_layer = 2
@@ -606,15 +618,13 @@ collision_mask = 5
 script = ExtResource("1_ly4k6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(4, 37)
-scale = Vector2(1.125, 1.40625)
+position = Vector2(4, 36.5)
+scale = Vector2(1.125, 1.390625)
 sprite_frames = SubResource("SpriteFrames_f117k")
-animation = &"walking"
 autoplay = "default"
-frame_progress = 0.870374
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(3, 44)
+position = Vector2(2.0000002, 45)
 rotation = 3.16028
 shape = SubResource("CapsuleShape2D_nc6s4")
 
@@ -623,28 +633,23 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(3, 79)
+position = Vector2(3, 75)
 shape = SubResource("RectangleShape2D_ly4k6")
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-emitting = false
-amount = 30
-lifetime = 0.5
-one_shot = true
-direction = Vector2(0, -1)
-spread = 7.8
-initial_velocity_min = 139.7
-initial_velocity_max = 227.94
-angle_min = -81.0
-angle_max = 217.1
-color = Color(1, 0, 0, 1)
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_j50fp")
 
 [node name="PlayerCamera" type="Camera2D" parent="."]
+zoom = Vector2(1.3, 1.3)
 position_smoothing_speed = 10.0
 rotation_smoothing_speed = 10.0
+
+[node name="Blood" type="GPUParticles2D" parent="."]
+emitting = false
+amount = 200
+texture = ExtResource("9_665ck")
+lifetime = 0.5
+process_material = SubResource("ParticleProcessMaterial_66i1h")
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

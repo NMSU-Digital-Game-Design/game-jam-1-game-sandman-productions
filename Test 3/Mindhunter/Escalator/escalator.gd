@@ -5,14 +5,15 @@ var walkingVelocity = 220
 var sprintingVelocity = 420
 var jumpVelocity = 220
 
-signal beenHit;
-
 var startedDown = false
 var jumpCount = 0
 var isRolling = false
 var roll_time = 1.1  # how long a roll lasts (seconds)
 var roll_timer = 0.0
 var facing_right = true  # <- Track which way the player is looking
+@export var max_health := 100
+var health := max_health
+@onready var blood_particles = $Blood
 
 func _ready() -> void:
 	pass
@@ -98,6 +99,21 @@ func _process(delta: float) -> void:
 
 	move_and_slide()
 
+func take_damage(amount: int):
+	health -= amount
+	show_blood()
+	print("Player health:", health)
+	if health <= 0:
+		die()
+
+func show_blood():
+	blood_particles.emitting = true
+	
+func stop_blood():
+	blood_particles.emitting = false
+	
+func die():
+	print("Player is dead!")
 
 func _on_animated_sprite_2d_animation_finished() -> void:
 	if $AnimatedSprite2D.animation == "roll":
