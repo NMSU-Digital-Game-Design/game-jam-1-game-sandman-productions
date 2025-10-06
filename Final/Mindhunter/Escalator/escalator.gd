@@ -93,6 +93,8 @@ func _process(delta: float) -> void:
 		if Input.is_action_just_pressed("Roll") and is_on_floor():
 			isRolling = true
 			roll_timer = roll_time
+			if isRolling :
+				velocity.x = sprintingVelocity
 			$AnimatedSprite2D.animation = "roll"
 			$AnimatedSprite2D.play()
 
