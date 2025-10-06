@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://dv2tq1fyhcwle"]
+[gd_scene load_steps=11 format=3 uid="uid://dv2tq1fyhcwle"]
 
 [ext_resource type="Script" uid="uid://bwwcbee07fafw" path="res://main.gd" id="1_r0du0"]
 [ext_resource type="PackedScene" uid="uid://c55ckk0gf4ok0" path="res://Map/map_1.tscn" id="1_uu6xs"]
@@ -8,6 +8,7 @@
 [ext_resource type="Script" uid="uid://bq34pqjs27s8t" path="res://key.gd" id="6_3dxm6"]
 [ext_resource type="Script" uid="uid://dyplls3gvx8mx" path="res://key_body.gd" id="7_lgr22"]
 [ext_resource type="PackedScene" uid="uid://ciiqepsuhcuuu" path="res://ghost.tscn" id="8_trn2v"]
+[ext_resource type="AudioStream" uid="uid://14kvj8mvw8es" path="res://Music/horror-playhouse-404813.mp3" id="9_03owx"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_3dxm6"]
 radius = 10.0298
@@ -142,6 +143,11 @@ position = Vector2(1699, 392)
 
 [node name="child2" parent="." instance=ExtResource("8_trn2v")]
 position = Vector2(1767, 394)
+
+[node name="LevelMusicBackground" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_03owx")
+volume_db = -18.739
+autoplay = true
 
 [connection signal="key_collected" from="Key/KeySprite" to="Door1" method="_on_key_key_collected"]
 [connection signal="key_collected" from="Key/KeyArea" to="Door1" method="_on_key_area_key_collected"]
